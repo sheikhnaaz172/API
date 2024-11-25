@@ -1,0 +1,10 @@
+{
+    "id": 76,
+    "productId": "PR376",
+    "productName": "Soda Fountain",
+    "productType": "Fountain",
+    "price": 20000.0,
+    "description": "style drink dispenser that adds a touch of nostalgia to any setting. With its sturdy construction and durable materials, this fountain is perfect for high-traffic areas such as restaurants, cafes, and entertainment venues.",
+    "quantity": 3,
+    "href": "/api/product/76"
+}

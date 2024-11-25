@@ -1,0 +1,10 @@
+{
+    "id": 74,
+    "productId": "PR174",
+    "productName": "Ice Cream Glycol Freezer",
+    "productType": "Freezer",
+    "price": 12000.0,
+    "description": "maintains a consistent temperature of -20°C to -30°C,capacity of 50 liters",
+    "quantity": 1,
+    "href": "/api/product/74"
+}

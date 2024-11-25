@@ -1,0 +1,35 @@
+{
+  "id": 104,
+  "orderId": "string",
+  "orderDate": "2024-11-25T13:23:38.137+00:00",
+  "totalCost": 0,
+  "customerRef": {
+    "id": 105,
+    "customerId": "CSTJOHN25",
+    "href": "/api/customer/79"
+  },
+  "orderItems": [
+    {
+      "id": 106,
+      "productRef": {
+        "id": 107,
+        "productId": null,
+        "href": "/api/product/74",
+        "productName": "Ice Cream Glycol Freezer",
+        "quantity": 0,
+        "orderItems": null
+      }
+    },
+    {
+      "id": 108,
+      "productRef": {
+        "id": 109,
+        "productId": null,
+        "href": "/api/product/75",
+        "productName": "Water Cooler",
+        "quantity": 1,
+        "orderItems": null
+      }
+    }
+  ]
+}

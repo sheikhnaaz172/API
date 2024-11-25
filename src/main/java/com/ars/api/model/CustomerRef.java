@@ -10,7 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +21,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@JsonAutoDetect(fieldVisibility =Visibility.ANY)
 public class CustomerRef {
 
 
@@ -30,16 +33,16 @@ public class CustomerRef {
 	
 	private String href;
 	
-	@OneToMany(cascade= {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.REMOVE,CascadeType.DETACH},fetch = FetchType.EAGER)
-	@JsonManagedReference("customerOrder")
-	private List<CustomerOrder> customerOrder;
+	
 	
 	public String getCustomerId() {
 		return customerId;
 	}
+	
 
 	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
+		
 	}
 
 	public String getHref() {

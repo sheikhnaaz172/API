@@ -1,0 +1,10 @@
+{
+    "id": 77,
+    "productId": "PR177",
+    "productName": "Badam Milk Juice Freezer",
+    "productType": "Freezer",
+    "price": 15000.0,
+    "description": "freeze badam milk juice quickly and efficiently,capacity of 2L",
+    "quantity": 1,
+    "href": "/api/product/77"
+}

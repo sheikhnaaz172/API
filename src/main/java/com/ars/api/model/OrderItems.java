@@ -9,8 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +22,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@JsonAutoDetect(fieldVisibility =Visibility.ANY)
 public class OrderItems {
 
 	public OrderItems() {
@@ -34,8 +37,14 @@ public class OrderItems {
 //	private Integer quantity;
 //	private string unitPrice;
 	@OneToOne(cascade = CascadeType.ALL)
-	@JsonManagedReference("productRef")
 	private ProductRef productRef;
+	
+	public void setProductRef(ProductRef productRef) {
+		this.productRef = productRef;
+	}
+	public ProductRef getProductRef() {
+		return productRef;
+	}
 
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.REMOVE,
 			CascadeType.DETACH }, fetch = FetchType.EAGER)

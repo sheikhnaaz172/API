@@ -5,6 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.ars.api.enums.ProductType;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-
+@JsonAutoDetect(fieldVisibility =Visibility.ANY)
 public class Product {
 
 	
@@ -31,7 +35,9 @@ public class Product {
 	
 	private String description;
 	
-	private Integer Quantity;
+	private Integer quantity;
+	
+	private String href;
 	
 	public String getProductName() {
 		return productName;
@@ -48,6 +54,13 @@ public class Product {
 
 	public void setProductId(String productId) {
 		this.productId = productId;
+	}
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Double getPrice() {
@@ -67,11 +80,11 @@ public class Product {
 	}
 
 	public Integer getQuantity() {
-		return Quantity;
+		return quantity;
 	}
 
 	public void setQuantity(Integer quantity) {
-		Quantity = quantity;
+		this.quantity = quantity;
 	}
 
 	public ProductType getProductType() {
@@ -80,6 +93,14 @@ public class Product {
 
 	public void setProductType(ProductType productType) {
 		this.productType = productType;
+	}
+
+	public String getHref() {
+		return href;
+	}
+
+	public void setHref(String href) {
+		this.href = href;
 	}
 	
 	
