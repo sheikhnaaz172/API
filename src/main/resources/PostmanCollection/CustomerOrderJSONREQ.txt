@@ -1,0 +1,24 @@
+{
+  
+  "orderId": "string",
+  "orderDate": "2024-11-25T13:23:38.137Z",
+  "totalCost": 0,
+ 
+  "customerRef": {
+    
+    "customerId": "CSTJOHN25",
+    "href": "string"
+  },
+  "orderItems": [
+    {
+     
+      "productRef": {
+        
+      
+        "href": "string",
+        "productName": "Ice Cream Glycol Freezer",
+        "quantity": 0
+      }
+    }
+  ]
+}

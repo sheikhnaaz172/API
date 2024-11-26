@@ -1,13 +1,12 @@
 package com.ars.api.service;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.ars.api.exception.ResourceNotFoundException;
@@ -21,6 +20,9 @@ public class CustomerService {
 	private CustomerRepo customerRepo;
 
 	private EntityManager en;
+	
+	@Value(value = "${cust.url}")
+	private String url;
 
 	public Customer createCustomer(Customer cust)  {
 //		DateTimeFormatter format= new DateTimeFormatter;
@@ -37,8 +39,9 @@ public class CustomerService {
 //		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 //		 Date date = inputFormat.parse(customer.getDate().toString());
 //		customer.setCustomerId(format.parse(customer.getDate().toString()).toString());
-//		Customer cs = customerRepo.save(customer);
-
+		Customer cs = customerRepo.save(cust);
+		cs.setHref(url+cs.getId());
+		cs.setName(cust.getFirstName()+" "+cust.getLastName());
 		return customerRepo.save(cust);
 	}
 
@@ -53,7 +56,7 @@ public class CustomerService {
 
 	}
 
-	public String getCustomerIdByName(String name) {
+	public String getHrefByCustomerId(String customerId) {
 		/*
 		 * CriteriaBuilder cb= en.getCriteriaBuilder(); CriteriaQuery<Customer>
 		 * cq=cb.createQuery(Customer.class); Root<Customer>
@@ -65,8 +68,8 @@ public class CustomerService {
 
 //		return en.createQuery(cq).toString();
 
-		String customerId = customerRepo.getCustomerIdByName(name);
-		return customerId;
+		String href = customerRepo.getHrefByCustomerId(customerId);
+		return href;
 	}
 
 	public void deleteCustomerById(Long id) {

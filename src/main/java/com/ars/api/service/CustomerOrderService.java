@@ -14,13 +14,27 @@ public class CustomerOrderService {
 
 	@Autowired
 	private CustomerOrderRepo customerOrderRepo;
+	@Autowired
+	private CustomerService customerService;
+	@Autowired
+	private ProductService prdctService;
 
 	public CustomerOrder createCustomerOrder(CustomerOrder customerOrder) {
 		
-		String customerId;
 		CustomerOrder cs = customerOrderRepo.save(customerOrder);
+	cs.getCustomerRef().setHref(customerService.getHrefByCustomerId(customerOrder.getCustomerRef().getCustomerId()));
+//	cs.getOrderItems().forEach(s->
+	/*{
+		s.getProductRef().setHref(cs.getId().toString()));	
+	}*/
+//	cs.getOrderItems().forEach(s->s.getProductRef().setHref(prdctService.getProductHrefByName()));
+//			getOrderItems().forEach(i->i.getProductRef().getProductName()))));
 //		cs.setOrderDate();
-		return cs;
+	
+	cs.getOrderItems().forEach(s->s.getProductRef().setHref(prdctService.getProductHrefByName(s.getProductRef().getProductName())));
+	CustomerOrder cust=customerOrderRepo.save(cs);
+	cust.setOrderId("ORD"+cs.getCustomerRef().getCustomerId()+"PRD");
+		return customerOrderRepo.save(cust);
 
 	}
 	

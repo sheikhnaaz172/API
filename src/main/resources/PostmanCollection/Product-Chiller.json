@@ -1,0 +1,10 @@
+{
+    "id": 75,
+    "productId": "PR375",
+    "productName": "Water Cooler",
+    "productType": "Chiller",
+    "price": 20000.0,
+    "description": "Chill water to a temperature of 10°C, capacity of 50 litres",
+    "quantity": 3,
+    "href": "/api/product/75"
+}
